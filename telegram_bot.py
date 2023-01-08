@@ -13,44 +13,15 @@ import logging
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
                     level=logging.WARNING)
 
-api_id = 22834783
-api_hash = '8a4a156d4946e55cbda7e43decf4f362'
+api_id = #your_api_id_int
+api_hash = 'your_api_hash'
 client = TelegramClient(
-    'denizzzka2125',
+    'your_nick',
     api_id,
     api_hash,
-    proxy=('http', '104.144.26.91', 8621, 'itrlisag', 'zgbasg5sr9e7')
+    #proxy=('type', 'ip', port_int, 'login', 'pass')
     )
 
-# Auto reply messages
-# headers = {
-#     'sec-ch-ua': '"Chromium";v="106", "Yandex";v="22", "Not;A=Brand";v="99"',
-#     'Referer': 'https://www.infoniac.ru/news/100-krasivyh-kommentariev-kotorye-mozhno-napisat-devushke-pod-foto-v-socsetyah.html',
-#     'sec-ch-ua-mobile': '?0',
-#     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 YaBrowser/22.11.5.715 Yowser/2.5 Safari/537.36',
-#     'sec-ch-ua-platform': '"Windows"',
-# }
-
-# r = requests.get(
-#     'https://www.infoniac.ru/news/100-krasivyh-kommentariev-kotorye-mozhno-napisat-devushke-pod-foto-v-socsetyah.html',
-#     headers=headers
-# )
-# soup = BeautifulSoup(r.content, 'lxml')
-
-# # ожидание определенного сообщения
-# # message_wait = ''
-# # @client.on(events.NewMessage(outgoing=False, pattern=f'.+(?i){message_wait}')) # ждёт какое либо слово
-
-# @client.on(events.NewMessage(outgoing=False))
-# async def my_event_handler(event):
-#     #if 'hello' in event.raw_text:
-#     number = random.randint(1,123)
-#     a = soup.find('div', class_='entry').find_all("p")[number].text.strip()
-#     a = a[a.find('.')+2:]
-#     await event.reply(a)
-#     # await event.respond(a) # не в качестве ответа пишет
-# client.start()
-# client.run_until_disconnected()
 
 # Choice the action
 async def choice_action():
@@ -110,47 +81,6 @@ async def send_reaction():
              reaction=reaction
              ))
     print(result.stringify())
-
-
-async def main():
-    await choice_action()
-    # Send message + edit + delete
-    # message = await client.send_message(
-    #     'me',
-    #     'This message has **bold**, `code`, __italics__ and '
-    #     'a [nice website](https://example.com)!',
-    #     link_preview=False
-    # )
-    # await asyncio.sleep(5)
-    # await client.delete_messages(message.chat_id, message.id) # delete
-    # await client.edit_message(message.chat_id, message.id, '') # edit
-
-    # Returns message
-    # print(message.raw_text)
-
-
-    # Reply to message
-    # await message.reply('Cool!')
-
-
-    # Write with username
-    # await client.send_message('username', 'hi')
-
-
-    # History of messages
-    # async for message in client.iter_messages('me'):
-    #     print(message.id, message.text)
-
-
-    # Save id
-    # async def (event):
-    # chat = await event.get_chat()
-    # sender = await event.get_sender()
-    # chat_id = event.chat_id
-    # sender_id = event.sender_id
-
-# with client:
-#     client.run_until_disconnected()
 
 if __name__ == '__main__':
     try:
